@@ -49,4 +49,10 @@ function ArticleDetail({ location }) {
   )
 }
 
+ArticleDetail.defaultProps = {
+  location: {
+    state: null,
+  },
+}
+
 export default ArticleDetail

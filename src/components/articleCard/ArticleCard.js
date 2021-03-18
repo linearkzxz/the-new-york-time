@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import { isEmpty } from 'lodash-es'
 import Card from '@material-ui/core/Card'
 import CardContent from '@material-ui/core/CardContent'
@@ -42,6 +43,14 @@ function ArticleCard({ title, desc, media, section, onClick }) {
       </Card>
     </div>
   )
+}
+
+ArticleCard.propTypes = {
+  onClick: PropTypes.func.isRequired,
+  title: PropTypes.string,
+  desc: PropTypes.string,
+  media: PropTypes.array,
+  section: PropTypes.string,
 }
 
 export default ArticleCard
