@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import NProgress from 'nprogress'
-import { isEmpty } from 'lodash-es'
+import isEmpty from 'lodash-es/isEmpty'
 import { useHistory } from 'react-router-dom'
 import Container from '@material-ui/core/Container'
 import Input from '@material-ui/core/Input'

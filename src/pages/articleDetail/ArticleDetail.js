@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { isEmpty } from 'lodash-es'
+import isEmpty from 'lodash-es/isEmpty'
 import { useHistory } from 'react-router-dom'
 import HomeIcon from '@material-ui/icons/Home'
 import Container from '@material-ui/core/Container'
@@ -41,7 +41,7 @@ function ArticleDetail({ location }) {
                 src={state.data.media[0]['media-metadata'][state.data.media[0]['media-metadata'].length - 1].url}
               />
               <span className='article__caption'>{state.data.media[0].caption}</span>
-            </div>{' '}
+            </div>
           </Container>
         )}
       </Container>
