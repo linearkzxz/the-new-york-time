@@ -1,0 +1,38 @@
+.home-page {
+  .title {
+    display: flex;
+    justify-content: center;
+  }
+
+  .title-line {
+    margin: 0 10%;
+
+    hr {
+      border: 1px solid #ebebeb;
+    }
+  }
+
+  .search {
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+
+    .MuiFormControl-root {
+      width: 80%;
+      max-width: 700px;
+    }
+  }
+
+  .filter {
+    margin-top: 50px;
+
+    .filter__form {
+      min-width: 120px;
+      width: 100%;
+    }
+  }
+
+  .article {
+    margin-top: 50px;
+  }
+}
