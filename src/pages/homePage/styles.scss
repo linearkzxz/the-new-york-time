@@ -1,7 +1,13 @@
 .home-page {
   .title {
+    margin: 20px 0;
     display: flex;
     justify-content: center;
+
+    .title__text {
+      font-size: 40px;
+      font-weight: bold;
+    }
   }
 
   .title-line {

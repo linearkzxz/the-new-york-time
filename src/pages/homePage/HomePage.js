@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import NProgress from 'nprogress'
 import { isEmpty } from 'lodash-es'
+import { useHistory } from 'react-router-dom'
 import Container from '@material-ui/core/Container'
 import Input from '@material-ui/core/Input'
 import InputLabel from '@material-ui/core/InputLabel'
@@ -15,6 +16,7 @@ import { getArticle } from '../../actions/article'
 import './styles.scss'
 
 function HomePage() {
+  const history = useHistory()
   const [filterSection, setFilterSection] = useState('')
   const [filterPeriod, setFilterPeriod] = useState(1)
   const [articles, setArticles] = useState([])
@@ -25,7 +27,6 @@ function HomePage() {
     const handleGetArticle = async () => {
       NProgress.start()
       const _article = await getArticle(1)
-      console.log('_article', _article.results)
       setArticles(_article.results)
       NProgress.done()
     }
@@ -54,16 +55,6 @@ function HomePage() {
     setDisplayArticles(_displayArticles)
   }, [articles, filterSection, searchArticlesName])
 
-  // const handleOnSearch = () => {
-  //   if (searchArticlesName) {
-  //     setDisplayArticles(
-  //       displayArticles.filter((item) => item.title.toLowerCase().includes(searchArticlesName.toLowerCase()))
-  //     )
-  //   } else {
-  //     setDisplayArticles(articles)
-  //   }
-  // }
-
   const handleChangeSearchArticlesName = () => (event) => {
     setSearchArticlesName(event.target.value)
   }
@@ -82,9 +73,9 @@ function HomePage() {
 
   return (
     <div className='home-page'>
-      <Container fixed>
+      <Container maxWidth='md'>
         <div className='title'>
-          <h1>The New York Times</h1>
+          <span className='title__text'>The New York Times</span>
         </div>
         <div className='title-line'>
           <hr />
@@ -156,7 +147,12 @@ function HomePage() {
                     section={item.section}
                     media={item.media}
                     onClick={() => {
-                      console.log('Click')
+                      history.push({
+                        pathname: 'article',
+                        state: {
+                          data: item,
+                        },
+                      })
                     }}
                   />
                 </div>
